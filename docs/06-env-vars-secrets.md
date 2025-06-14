@@ -1,8 +1,3 @@
-Excellent! Here’s a detailed, production-minded template for **`06-env-vars-secrets.md`** on managing environment variables and secrets.
-
----
-
-````md
 # 06. Environment Variables & Secrets Management
 
 ## Purpose
@@ -144,15 +139,3 @@ VITE_API_BASE_URL=/api
 * [ ] [07-persistent-volumes.md](./07-persistent-volumes.md): Persistent storage with Docker volumes.
 * [ ] [08-networking-service-discovery.md](./08-networking-service-discovery.md): Internal networking and service discovery.
 
----
-
-```
-
----
-
-**How to use:**  
-- Copy into `docs/06-env-vars-secrets.md`
-- Add any project-specific secrets, naming conventions, or `.env.example` variables as your stack grows.
-
-Ready for **step 7 (Persistent Volumes)**?
-```

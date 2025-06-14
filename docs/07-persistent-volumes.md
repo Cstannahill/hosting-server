@@ -1,8 +1,3 @@
-Here’s a thorough, practical template for **`07-persistent-volumes.md`**—covering persistent data, why it matters, and how to use Docker volumes in your stack.
-
----
-
-````md
 # 07. Persistent Data & Docker Volumes
 
 ## Purpose
@@ -143,15 +138,3 @@ docker volume rm db_data
 
 * [ ] [08-networking-service-discovery.md](./08-networking-service-discovery.md): How your services find and talk to each other on the Docker network.
 
----
-
-```
-
----
-
-**How to use:**  
-- Copy this into `docs/07-persistent-volumes.md`.
-- Customize volume names, internal paths, and backup routines to match your stack as needed.
-
-Ready for **step 8 (Networking & Service Discovery)?**
-```
