@@ -1,16 +1,23 @@
 # Hosting Platform Documentation
 **Table of Contents & Build Checklist**
 
+This checklist defines the **build order** of the platform. Each item represents a concrete **implementation step**, not just a reading assignment.
+
+> ⚠️ You must actively build each part of the system as you proceed.  
+> This is a hands-on checklist — not a theory guide.
+
+---
+
 | Step | Area/Service | Documentation File | Complete? |
 |------|--------------|--------------------|-----------|
 | 1 | Project Overview & Goals | [01-overview-goals.md](./01-overview-goals.md) | [x] |
-| 2 | Directory Structure & Setup | [02-directory-setup.md](./02-directory-setup.md) | [x] |
-| 3 | Dockerizing Backend (API) | [03-dockerizing-api.md](./03-dockerizing-api.md) | [x] |
-| 4 | Docker Compose Orchestration | [04-docker-compose-orchestration.md](./04-docker-compose-orchestration.md) | [x] |
-| 5 | NGINX Reverse Proxy | [05-nginx-reverse-proxy.md](./05-nginx-reverse-proxy.md) | [x] |
-| 6 | Environment Variables & Secrets | [06-env-vars-secrets.md](./06-env-vars-secrets.md) | [x] |
-| 7 | Persistent Volumes | [07-persistent-volumes.md](./07-persistent-volumes.md) | [x] |
-| 8 | Networking & Service Discovery | [08-networking-service-discovery.md](./08-networking-service-discovery.md) | [x] |
+| 2 | Directory Structure & Setup | [02-directory-setup.md](./02-directory-setup.md) | [ ] |
+| 3 | Dockerizing Backend (API) | [03-dockerizing-api.md](./03-dockerizing-api.md) | [ ] |
+| 4 | Docker Compose Orchestration | [04-docker-compose-orchestration.md](./04-docker-compose-orchestration.md) | [ ] |
+| 5 | NGINX Reverse Proxy | [05-nginx-reverse-proxy.md](./05-nginx-reverse-proxy.md) | [ ] |
+| 6 | Environment Variables & Secrets | [06-env-vars-secrets.md](./06-env-vars-secrets.md) | [ ] |
+| 7 | Persistent Volumes | [07-persistent-volumes.md](./07-persistent-volumes.md) | [ ] |
+| 8 | Networking & Service Discovery | [08-networking-service-discovery.md](./08-networking-service-discovery.md) | [ ] |
 | 9 | Operations (Run/Logs/Update) | [09-operations.md](./09-operations.md) | [ ] |
 | 10 | Local Domains & SSL (Optional) | [10-local-domains-ssl.md](./10-local-domains-ssl.md) | [ ] |
 | 11 | Monitoring & Logs | [11-monitoring-logs.md](./11-monitoring-logs.md) | [ ] |
@@ -25,7 +32,12 @@
 
 ---
 
-- Mark `[x]` in the "Complete?" column as you finish each step.
-- Each doc above contains full instructions, examples, and integration notes.
+### ✅ Completion Instructions
 
-**Happy building!**
+- You must **create and commit actual code/config** for each doc before marking it `[x]`.
+- Use the doc as a spec — don’t skip implementation.
+- If a doc is unclear, pause and clarify before proceeding.
+
+---
+
+**No doc is considered done until it’s been built.**
