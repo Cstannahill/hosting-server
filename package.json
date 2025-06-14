@@ -1,0 +1,6 @@
+{
+  "name": "hosting-server",
+  "private": true,
+  "version": "0.0.1",
+  "packageManager": "npm@9.0.0"
+}
