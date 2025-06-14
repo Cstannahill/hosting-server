@@ -1,9 +1,9 @@
-Awesome! Here’s a **complete, well-structured draft** for **`01-monorepo-structure.md`**—with copy-paste-ready content and prompts for tailoring to your project.
+Awesome! Here’s a **complete, well-structured draft** for **`02-directory-setup.md`**—with copy-paste-ready content and prompts for tailoring to your project.
 
 ---
 
 ```md
-# 01. Monorepo Structure
+# 02. Directory Structure & Setup
 
 ## Purpose
 
@@ -34,7 +34,7 @@ my-hosting-platform/
 ├── nginx/
 │   └── nginx.conf            # Reverse proxy config
 ├── docs/                     # Project documentation (this folder)
-│   ├── 01-monorepo-structure.md
+│   ├── 02-directory-setup.md
 │   └── ... (other docs)
 ├── docker-compose.yml        # Multi-app orchestration config
 ├── .env                      # Global environment variables & secrets
@@ -118,7 +118,7 @@ High-level introduction, setup guide, and developer quickstart.
 
 **How to use:**
 
-* Copy into `docs/01-monorepo-structure.md`
+* Copy into `docs/02-directory-setup.md`
 * Tailor folder/app descriptions if you add more services
 * Add project-specific tips or diagrams if desired
 
