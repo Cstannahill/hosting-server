@@ -31,8 +31,10 @@ For the built-in examples:
 - FastAPI backend → `http://api.local`
 
 The stack now includes a Python-based **data_capture** service. It stores
-metrics from `metrics_exporter` in SQLite, embeds them with Ollama's
-`nomic-embed-text:v1.5` model, and persists vectors in a local Chroma database.
+metrics from `metrics_exporter` in SQLite and embeds them with Ollama's
+`nomic-embed-text:v1.5` model, persisting vectors in a local Chroma database.
+Embeddings are generated via a dedicated **ollama** container exposed on
+`http://ollama:11434`.
 
 See the documentation in the `docs/` directory for detailed guides.
 

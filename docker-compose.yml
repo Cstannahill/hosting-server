@@ -109,11 +109,20 @@ services:
 
       - PROXY_PORT=8080
 
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
   data_capture:
     build: ./services/data_capture
     container_name: data_capture
     depends_on:
       - metrics_exporter
+      - ollama
     volumes:
       - ./data:/data
     environment:
@@ -122,7 +131,9 @@ services:
       - METRICS_URL=http://metrics_exporter:9300/metrics
       - CAPTURE_INTERVAL_SECS=60
       - CHROMA_COLLECTION=metrics
+      - OLLAMA_HOST=http://ollama:11434
 
 
 volumes:
   db_data:
+  ollama_data:

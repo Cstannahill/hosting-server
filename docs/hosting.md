@@ -141,9 +141,9 @@ The sample apps demonstrate hosting FastAPI (Python), Express and NestJS (Node.j
 and an ASP.NET minimal API. Any Dockerised backend can be added to the registry
 following the same pattern.
 
-The platform also ships with a `data_capture` service which stores metrics in
-SQLite, embeds them with the `nomic-embed-text:v1.5` model via Ollama and writes
-the vectors to a Chroma database.
+The platform also ships with `data_capture` and `ollama` services. Metrics are
+stored in SQLite, then embedded through the Ollama API using the
+`nomic-embed-text:v1.5` model, and finally persisted to a Chroma database.
 
 ## Requirements
 - Docker & Docker Compose
