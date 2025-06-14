@@ -3,11 +3,13 @@ const helmet = require('helmet');
 const compression = require('compression');
 const morgan = require('morgan');
 
+
 const app = express();
 app.disable('x-powered-by');
 app.use(helmet());
 app.use(morgan('combined'));
 app.use(compression());
+
 
 const port = process.env.PORT || 4000;
 
@@ -36,3 +38,7 @@ function shutdown() {
 
 process.on('SIGINT', shutdown);
 process.on('SIGTERM', shutdown);
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled rejection', err);
+  shutdown();
+});

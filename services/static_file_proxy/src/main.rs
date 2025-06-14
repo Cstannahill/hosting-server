@@ -5,6 +5,9 @@ use std::{env, net::SocketAddr};
 use tower_http::services::ServeDir;
 use tower_http::set_header::SetResponseHeaderLayer;
 use http::header::{CACHE_CONTROL, HeaderValue};
+use tower_http::compression::CompressionLayer;
+use tower_http::set_header::SetResponseHeaderLayer;
+use axum::http::HeaderValue;
 use axum::body::Body;
 use reqwest::Client;
 
@@ -67,6 +70,14 @@ async fn main() {
     );
 
     let mut router = Router::new().nest_service("/", serve_dir.layer(cache_layer));
+
+    let mut router = Router::new()
+        .nest_service("/", serve_dir)
+        .layer(CompressionLayer::new())
+        .layer(SetResponseHeaderLayer::overriding(
+            axum::http::header::CACHE_CONTROL,
+            HeaderValue::from_static("public, max-age=3600"),
+        ));
     if cfg.proxy_mode {
         router = router.fallback(proxy);
     }
