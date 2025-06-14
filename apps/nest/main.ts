@@ -7,6 +7,11 @@ class AppController {
   getRoot() {
     return { message: 'Hello from NestJS' };
   }
+
+  @Get('health')
+  health() {
+    return { status: 'ok' };
+  }
 }
 
 @Module({
@@ -16,7 +21,8 @@ class AppModule {}
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const port = process.env.PORT || 4001;
-  await app.listen(port as number);
+  app.enableShutdownHooks();
+  const port = parseInt(process.env.PORT || '4001', 10);
+  await app.listen(port);
 }
 bootstrap();
