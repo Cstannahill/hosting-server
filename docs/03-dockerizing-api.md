@@ -21,12 +21,19 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
-EXPOSE 8000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+RUN chmod +x start.sh prestart.sh
+ENV PORT=8000
+EXPOSE $PORT
+CMD ["./start.sh"]
 ```
 
 - `main:app` assumes the entry point is `main.py` with `app = FastAPI()`.
 - `requirements.txt` contains all Python dependencies.
+- `start.sh` launches Uvicorn using environment variables:
+  - `PORT` – port to bind (default `8000`)
+  - `WORKERS` – number of worker processes
+  - `LOG_LEVEL` – log verbosity
+- `prestart.sh` runs optional setup tasks before the server starts.
 
 ## Step-by-Step: Build and Run Locally
 
@@ -49,6 +56,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
    ```
 
    Visit [http://localhost:8000/docs](http://localhost:8000/docs) to view the interactive API docs.
+   A simple health check is available at `/health`.
 
 ## Integrating with Docker Compose
 

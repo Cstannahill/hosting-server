@@ -14,10 +14,13 @@ The examples below show minimal setups for Python (FastAPI), Node.js (Express an
    ```Dockerfile
    FROM python:3.12-slim
    WORKDIR /app
+   COPY requirements.txt ./
+   RUN pip install --no-cache-dir -r requirements.txt
    COPY . .
-   RUN pip install fastapi uvicorn
-   EXPOSE 8000
-   CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+   RUN chmod +x start.sh prestart.sh
+   ENV PORT=8000
+   EXPOSE $PORT
+   CMD ["./start.sh"]
    ```
 2. Define a compose file exposing the port:
    ```yaml
@@ -26,7 +29,11 @@ The examples below show minimal setups for Python (FastAPI), Node.js (Express an
        build: .
        ports:
          - "8000:8000"
+       environment:
+         - PORT=8000
    ```
+
+`start.sh` reads the `PORT`, `WORKERS`, and `LOG_LEVEL` variables to control the Uvicorn server.
 
 ---
 
