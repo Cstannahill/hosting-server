@@ -20,8 +20,8 @@ This checklist defines the **build order** of the platform. Each item represents
 | 8 | Networking & Service Discovery | [08-networking-service-discovery.md](./08-networking-service-discovery.md) | [x] |
 | 9 | Operations (Run/Logs/Update) | [09-operations.md](./09-operations.md) | [x] |
 | 10 | Local Domains & SSL (Optional) | [10-local-domains-ssl.md](./10-local-domains-ssl.md) | [x] |
-| 11 | Monitoring & Logs | [11-monitoring-logs.md](./11-monitoring-logs.md) | [ ] |
-| 12 | Scaling & Migration | [12-scaling-migration.md](./12-scaling-migration.md) | [ ] |
+| 11 | Monitoring & Logs | [11-monitoring-logs.md](./11-monitoring-logs.md) | [x] |
+| 12 | Scaling & Migration | [12-scaling-migration.md](./12-scaling-migration.md) | [x] |
 | 13 | Rust: Log Watcher/Aggregator | [13-log-watcher.md](./13-log-watcher.md) | [ ] |
 | 14 | Rust: Backup Scheduler | [14-backup-scheduler.md](./14-backup-scheduler.md) | [ ] |
 | 15 | Rust: Webhook Handler | [15-webhook-handler.md](./15-webhook-handler.md) | [ ] |

@@ -146,7 +146,7 @@ server {
 
 ## Next Steps
 
-* [ ] [11-monitoring-logs.md](./11-monitoring-logs.md): Add logging and basic monitoring for better visibility into your apps.
+* [x] [11-monitoring-logs.md](./11-monitoring-logs.md): Add logging and basic monitoring for better visibility into your apps.
 
 ---
 
