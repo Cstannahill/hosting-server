@@ -23,7 +23,7 @@ This checklist defines the **build order** of the platform. Each item represents
 | 11 | Monitoring & Logs | [11-monitoring-logs.md](./11-monitoring-logs.md) | [x] |
 | 12 | Scaling & Migration | [12-scaling-migration.md](./12-scaling-migration.md) | [x] |
 | 13 | Rust: Log Watcher/Aggregator | [13-log-watcher.md](./13-log-watcher.md) | [ ] |
-| 14 | Rust: Backup Scheduler | [14-backup-scheduler.md](./14-backup-scheduler.md) | [ ] |
+| 14 | Rust: Backup Scheduler | [14-backup-scheduler.md](./14-backup-scheduler.md) | [x] |
 | 15 | Rust: Webhook Handler | [15-webhook-handler.md](./15-webhook-handler.md) | [ ] |
 | 16 | Rust: Healthcheck Dashboard | [16-healthcheck-dashboard.md](./16-healthcheck-dashboard.md) | [ ] |
 | 17 | Rust: Static File Server/Proxy | [17-static-file-proxy.md](./17-static-file-proxy.md) | [ ] |

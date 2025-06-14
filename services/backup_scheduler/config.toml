@@ -1,0 +1,12 @@
+[postgres]
+host = "db"
+user = "postgres"
+password = "postgres"
+database = "postgres"
+
+[schedule]
+cron = "0 2 * * *"
+
+[backup]
+directory = "/app/backups"
+compress = true
