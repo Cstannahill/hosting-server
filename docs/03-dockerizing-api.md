@@ -21,6 +21,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
+EXPOSE 8000
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
 RUN chmod +x start.sh prestart.sh
 ENV PORT=8000
 EXPOSE $PORT
@@ -29,6 +31,7 @@ CMD ["./start.sh"]
 
 - `main:app` assumes the entry point is `main.py` with `app = FastAPI()`.
 - `requirements.txt` contains all Python dependencies.
+- Expose a `/health` route so monitoring tools can check service status.
 - `start.sh` launches Uvicorn using environment variables:
   - `PORT` – port to bind (default `8000`)
   - `WORKERS` – number of worker processes

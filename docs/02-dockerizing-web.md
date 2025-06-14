@@ -45,6 +45,22 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 3000
 ````
 
+You can also include a custom NGINX config to enable gzip compression and SPA
+fallbacks:
+
+```nginx
+server {
+  listen 3000;
+  root /usr/share/nginx/html;
+  gzip on;
+  gzip_types text/css application/javascript application/json image/svg+xml;
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+}
+```
+
+
 * **Why this pattern?**
 
   * Keeps the final image very small and secure (no Node, just static files and NGINX)
