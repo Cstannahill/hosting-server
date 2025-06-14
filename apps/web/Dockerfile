@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package.json tsconfig.json vite.config.ts ./
 COPY src ./src
 COPY index.html ./
-RUN npm install && npm run build
+RUN npm ci && npm run build
 
 # Stage 2: serve with nginx
 FROM nginx:1.27-alpine

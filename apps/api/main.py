@@ -1,17 +1,22 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from loguru import logger
 import os
 import uvicorn
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-
-@app.get("/health")
-async def health_check():
-    return {"status": "ok"}
 
 @app.get("/")
 async def read_root():
     env = os.environ.get("ENV", "development")
+    logger.info("Root request")
     return {"message": f"Hello from {env}"}
 
 

@@ -3,6 +3,9 @@ use axum::extract::State;
 use axum::body;
 use std::{env, net::SocketAddr};
 use tower_http::services::ServeDir;
+use tower_http::compression::CompressionLayer;
+use tower_http::set_header::SetResponseHeaderLayer;
+use axum::http::HeaderValue;
 use axum::body::Body;
 use reqwest::Client;
 
@@ -56,7 +59,13 @@ async fn main() {
     let serve_dir = get_service(ServeDir::new(&cfg.static_root))
         .handle_error(|_| async { StatusCode::INTERNAL_SERVER_ERROR });
 
-    let mut router = Router::new().nest_service("/", serve_dir);
+    let mut router = Router::new()
+        .nest_service("/", serve_dir)
+        .layer(CompressionLayer::new())
+        .layer(SetResponseHeaderLayer::overriding(
+            axum::http::header::CACHE_CONTROL,
+            HeaderValue::from_static("public, max-age=3600"),
+        ));
     if cfg.proxy_mode {
         router = router.fallback(proxy);
     }
