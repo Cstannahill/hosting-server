@@ -1,8 +1,3 @@
-Great! Here’s a **detailed, production-ready template for `02-dockerizing-web.md`**—your Vite/React frontend.
-
----
-
-````md
 # 02. Dockerizing the Frontend (Vite/React)
 
 ## Purpose
@@ -43,7 +38,7 @@ RUN npm run build
 FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 3000
-````
+```
 
 * **Why this pattern?**
 
@@ -118,15 +113,3 @@ services:
 ## Next Steps
 
 * [ ] [03-dockerizing-api.md](./03-dockerizing-api.md): Dockerizing the backend (FastAPI) app.
-
-```
-
----
-
-**How to use:**  
-- Copy/paste into `docs/02-dockerizing-web.md`.
-- Update `myapp-web` image name as you like.
-- Adjust “Development Tips” section if you have a custom workflow.
-
-**Ready for step 3 (Dockerizing API), or want a tweak to this one?**
-```

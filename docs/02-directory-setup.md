@@ -1,8 +1,3 @@
-Awesome! Here’s a **complete, well-structured draft** for **`02-directory-setup.md`**—with copy-paste-ready content and prompts for tailoring to your project.
-
----
-
-```md
 # 02. Directory Structure & Setup
 
 ## Purpose
@@ -110,15 +105,4 @@ High-level introduction, setup guide, and developer quickstart.
 
 - [ ] [02-dockerizing-web.md](./02-dockerizing-web.md): Dockerizing the frontend (Vite) app.
 - [ ] [03-dockerizing-api.md](./03-dockerizing-api.md): Dockerizing the backend (FastAPI) app.
-
----
-```
-
----
-
-**How to use:**
-
-* Copy into `docs/02-directory-setup.md`
-* Tailor folder/app descriptions if you add more services
-* Add project-specific tips or diagrams if desired
 
