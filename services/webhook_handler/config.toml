@@ -1,0 +1,6 @@
+[server]
+port = 9000
+secret = "change_me"
+
+[actions]
+script = "/app/scripts/deploy.sh"
