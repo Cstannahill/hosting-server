@@ -116,6 +116,6 @@ volumes:
 
 ## Next Steps
 
-- [ ] [05-nginx-reverse-proxy.md](./05-nginx-reverse-proxy.md): setting up the reverse proxy for routing.
+- [x] [05-nginx-reverse-proxy.md](./05-nginx-reverse-proxy.md): setting up the reverse proxy for routing.
 
 

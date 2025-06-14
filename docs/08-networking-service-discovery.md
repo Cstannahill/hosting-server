@@ -139,5 +139,5 @@ proxy_pass http://web:3000/;
 
 ## Next Steps
 
-* [ ] [09-operations.md](./09-operations.md): Day-to-day usage, starting/stopping services, viewing logs, and updating containers.
+* [x] [09-operations.md](./09-operations.md): Day-to-day usage, starting/stopping services, viewing logs, and updating containers.
 

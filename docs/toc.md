@@ -14,12 +14,12 @@ This checklist defines the **build order** of the platform. Each item represents
 | 2 | Directory Structure & Setup | [02-directory-setup.md](./02-directory-setup.md) | [x] |
 | 3 | Dockerizing Backend (API) | [03-dockerizing-api.md](./03-dockerizing-api.md) | [x] |
 | 4 | Docker Compose Orchestration | [04-docker-compose-orchestration.md](./04-docker-compose-orchestration.md) | [x] |
-| 5 | NGINX Reverse Proxy | [05-nginx-reverse-proxy.md](./05-nginx-reverse-proxy.md) | [ ] |
-| 6 | Environment Variables & Secrets | [06-env-vars-secrets.md](./06-env-vars-secrets.md) | [ ] |
-| 7 | Persistent Volumes | [07-persistent-volumes.md](./07-persistent-volumes.md) | [ ] |
-| 8 | Networking & Service Discovery | [08-networking-service-discovery.md](./08-networking-service-discovery.md) | [ ] |
-| 9 | Operations (Run/Logs/Update) | [09-operations.md](./09-operations.md) | [ ] |
-| 10 | Local Domains & SSL (Optional) | [10-local-domains-ssl.md](./10-local-domains-ssl.md) | [ ] |
+| 5 | NGINX Reverse Proxy | [05-nginx-reverse-proxy.md](./05-nginx-reverse-proxy.md) | [x] |
+| 6 | Environment Variables & Secrets | [06-env-vars-secrets.md](./06-env-vars-secrets.md) | [x] |
+| 7 | Persistent Volumes | [07-persistent-volumes.md](./07-persistent-volumes.md) | [x] |
+| 8 | Networking & Service Discovery | [08-networking-service-discovery.md](./08-networking-service-discovery.md) | [x] |
+| 9 | Operations (Run/Logs/Update) | [09-operations.md](./09-operations.md) | [x] |
+| 10 | Local Domains & SSL (Optional) | [10-local-domains-ssl.md](./10-local-domains-ssl.md) | [x] |
 | 11 | Monitoring & Logs | [11-monitoring-logs.md](./11-monitoring-logs.md) | [ ] |
 | 12 | Scaling & Migration | [12-scaling-migration.md](./12-scaling-migration.md) | [ ] |
 | 13 | Rust: Log Watcher/Aggregator | [13-log-watcher.md](./13-log-watcher.md) | [ ] |

@@ -136,6 +136,6 @@ VITE_API_BASE_URL=/api
 
 ## Next Steps
 
-* [ ] [07-persistent-volumes.md](./07-persistent-volumes.md): Persistent storage with Docker volumes.
-* [ ] [08-networking-service-discovery.md](./08-networking-service-discovery.md): Internal networking and service discovery.
+* [x] [07-persistent-volumes.md](./07-persistent-volumes.md): Persistent storage with Docker volumes.
+* [x] [08-networking-service-discovery.md](./08-networking-service-discovery.md): Internal networking and service discovery.
 

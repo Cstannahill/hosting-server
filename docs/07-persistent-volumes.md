@@ -136,5 +136,5 @@ docker volume rm db_data
 
 ## Next Steps
 
-* [ ] [08-networking-service-discovery.md](./08-networking-service-discovery.md): How your services find and talk to each other on the Docker network.
+* [x] [08-networking-service-discovery.md](./08-networking-service-discovery.md): How your services find and talk to each other on the Docker network.
 

@@ -167,7 +167,7 @@ docker system prune
 
 ## Next Steps
 
-* [ ] [10-local-domains-ssl.md](./10-local-domains-ssl.md): (Optional) Custom local domains and SSL for a production-like local environment.
+* [x] [10-local-domains-ssl.md](./10-local-domains-ssl.md): (Optional) Custom local domains and SSL for a production-like local environment.
 * [ ] [11-monitoring-logs.md](./11-monitoring-logs.md): (Optional) Adding logging and basic monitoring.
 
 ---
