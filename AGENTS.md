@@ -14,10 +14,10 @@ You are the agent responsible for **building** this platform. Your role is not t
 ## Mandatory Build Protocol
 
 Before starting any task:
-- Open `docs/toc.md` and locate the first unchecked item.
-- Carefully review the code and documentation for the **previous step** and ensure it has been **fully implemented** — not just marked off.
-- **Then read the current step, and implement it in full.**
-- Only mark a step as complete if the corresponding code or configuration is functioning and present.
+- Open `docs/hostingplan.md` and `docs/hosting.md`. These files now define the active roadmap for the platform.
+- Carefully review the code and documentation completed so far and ensure all previous work is truly implemented.
+- Use the tasks and ideas outlined in `hostingplan.md` and `hosting.md` to determine what to build next.
+- Implement each feature in full before considering it done.
 
 ---
 
@@ -36,8 +36,8 @@ The system must be **fully functional, incrementally built**, and ready for real
 
 ## Codex Agent: Checklist Before Every Task
 
-- [ ] ✅ Read and implement the next unchecked step in `docs/toc.md`.
-- [ ] ✅ Ensure the previous step is complete and code exists.
+- [ ] ✅ Consult `docs/hostingplan.md` and `docs/hosting.md` for the next feature or improvement.
+- [ ] ✅ Verify that previously described functionality is actually implemented in code.
 - [ ] ✅ Use the latest stable libraries and tools.
 - [ ] ✅ Keep work modular, extensible, and production-capable.
 - [ ] ✅ Write and update docs alongside real code.
