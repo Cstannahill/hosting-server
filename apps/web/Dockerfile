@@ -1,19 +1,13 @@
-# apps/web/Dockerfile (pnpm version)
-FROM node:20-alpine
-
+# Stage 1 - build
+FROM node:20-alpine AS builder
 WORKDIR /app
+COPY package.json tsconfig.json vite.config.ts ./
+COPY public ./public
+COPY src ./src
+RUN npm install && npm run build
 
-COPY . .
-
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@8.15.5 --activate
-
-# Install dependencies
-RUN pnpm install --frozen-lockfile
-
-# Build the app
-RUN pnpm build
-
+# Stage 2 - serve
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 3000
-
-CMD ["pnpm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
