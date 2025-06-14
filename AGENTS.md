@@ -5,6 +5,9 @@
 **Codex:**  
 You are the agent responsible for planning, generating, and modifying this platform.  
 **Before starting any task, you must consult this document and follow its guidelines.**
+Before planning or coding, open `docs/00-table-of-contents.md` and locate the first unchecked item.
+Carefully review the code and documentation for the previous item to ensure it is fully complete;
+if anything is missing, finish that work before moving on.
 
 ---
 
