@@ -4,6 +4,8 @@ This repository contains a lightweight platform for hosting multiple fullstack a
 
 Sample backends are provided for FastAPI, Express, NestJS and ASP.NET to demonstrate that any Dockerised language can be integrated.
 
+The example apps now include compression middleware and request logging. The React frontend checks the API health endpoint from a configurable URL, and the static file proxy serves assets with long-lived caching headers.
+
 The FastAPI example now includes a flexible `start.sh` script that reads environment variables (`PORT`, `WORKERS`, and `LOG_LEVEL`) and a `/health` endpoint for basic monitoring.
 
 ## Usage

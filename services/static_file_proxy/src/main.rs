@@ -3,6 +3,8 @@ use axum::extract::State;
 use axum::body;
 use std::{env, net::SocketAddr};
 use tower_http::services::ServeDir;
+use tower_http::set_header::SetResponseHeaderLayer;
+use http::header::{CACHE_CONTROL, HeaderValue};
 use tower_http::compression::CompressionLayer;
 use tower_http::set_header::SetResponseHeaderLayer;
 use axum::http::HeaderValue;
@@ -56,8 +58,18 @@ async fn proxy(State(cfg): State<AppConfig>, req: Request<Body>) -> Result<axum:
 async fn main() {
     let cfg = AppConfig::from_env();
 
-    let serve_dir = get_service(ServeDir::new(&cfg.static_root))
-        .handle_error(|_| async { StatusCode::INTERNAL_SERVER_ERROR });
+    let serve_dir = get_service(
+        ServeDir::new(&cfg.static_root)
+            .precompressed_gzip()
+    )
+    .handle_error(|_| async { StatusCode::INTERNAL_SERVER_ERROR });
+
+    let cache_layer = SetResponseHeaderLayer::overriding(
+        CACHE_CONTROL,
+        HeaderValue::from_static("public, max-age=3600"),
+    );
+
+    let mut router = Router::new().nest_service("/", serve_dir.layer(cache_layer));
 
     let mut router = Router::new()
         .nest_service("/", serve_dir)
