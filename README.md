@@ -1,8 +1,8 @@
 # Fullstack App Hosting Platform
 
-This repository contains a lightweight platform for hosting multiple fullstack applications. Each app defines its own Compose file externally and is reverse proxied through a single NGINX instance. The platform can proxy Python (FastAPI), Node.js (Express or NestJS), and even C# backends.
+This repository contains a lightweight platform for hosting multiple fullstack applications. Each app defines its own Compose file externally and is reverse proxied through a single NGINX instance. The platform can proxy Python (FastAPI), Node.js (Express or NestJS), C#, and now Go backends.
 
-Sample backends are provided for FastAPI, Express, NestJS and ASP.NET to demonstrate that any Dockerised language can be integrated.
+Sample backends are provided for FastAPI, Express, NestJS, ASP.NET, and a simple Go service to demonstrate that any Dockerised language can be integrated.
 
 The example apps now include compression middleware and request logging. The React frontend checks the API health endpoint from a configurable URL, and the static file proxy serves assets with long-lived caching headers.
 
@@ -35,6 +35,9 @@ metrics from `metrics_exporter` in SQLite and embeds them with Ollama's
 `nomic-embed-text:v1.5` model, persisting vectors in a local Chroma database.
 Embeddings are generated via a dedicated **ollama** container exposed on
 `http://ollama:11434`.
+
+The repository also introduces a Go-based **go_job_queue** service showcasing
+goroutines and channels for concurrent background processing.
 
 See the documentation in the `docs/` directory for detailed guides.
 

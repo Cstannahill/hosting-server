@@ -109,6 +109,14 @@ services:
 
       - PROXY_PORT=8080
 
+  go_job_queue:
+    build: ./services/go_job_queue
+    container_name: go_job_queue
+    ports:
+      - "9001:9000"
+    environment:
+      - PORT=9000
+
   ollama:
     image: ollama/ollama:latest
     container_name: ollama
