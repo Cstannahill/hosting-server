@@ -1,0 +1,5 @@
+name: express_api
+backend:
+  port: 4000
+  domain: api.express.local
+compose_file: ../apps/express_api/docker-compose.yml

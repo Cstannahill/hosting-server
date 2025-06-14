@@ -3,14 +3,19 @@ events { worker_connections 1024; }
 
 http {
 {% for app in apps %}
+  {% if app.frontend %}
   upstream {{ app.name }}_frontend {
     server {{ app.name }}_frontend:{{ app.frontend.port }};
   }
+  {% endif %}
 
+  {% if app.backend %}
   upstream {{ app.name }}_backend {
     server {{ app.name }}_backend:{{ app.backend.port }};
   }
+  {% endif %}
 
+  {% if app.frontend %}
   server {
     listen 80;
     server_name {{ app.frontend.domain }};
@@ -21,7 +26,9 @@ http {
       proxy_set_header X-Real-IP $remote_addr;
     }
   }
+  {% endif %}
 
+  {% if app.backend %}
   server {
     listen 80;
     server_name {{ app.backend.domain }};
@@ -32,5 +39,6 @@ http {
       proxy_set_header X-Real-IP $remote_addr;
     }
   }
+  {% endif %}
 {% endfor %}
 }
