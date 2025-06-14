@@ -70,5 +70,21 @@ services:
     depends_on:
       - loki
 
+  backup_scheduler:
+    build: ./services/backup_scheduler
+    container_name: backup_scheduler
+    depends_on:
+      - db
+    volumes:
+      - db_data:/db_data:ro
+      - ./backups:/app/backups
+    environment:
+      - PGHOST=db
+      - PGUSER=${PGUSER:-postgres}
+      - PGPASSWORD=${PGPASSWORD:-postgres}
+      - PGDATABASE=${PGDATABASE:-postgres}
+      - BACKUP_SCHEDULE=${BACKUP_SCHEDULE:-0 2 * * *}
+      - BACKUP_DIR=/app/backups
+
 volumes:
   db_data:
