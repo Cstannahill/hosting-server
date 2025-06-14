@@ -1,0 +1,13 @@
+[server]
+port = 8080
+static_root = "/app/public"
+proxy_mode = false
+allowed_extensions = ["html", "css", "js", "png", "jpg", "pdf"]
+cache_seconds = 600
+
+[proxy]
+enabled = true
+base_path = "/api/"
+target = "http://api:8000"
+path_rewrite = true
+add_auth_header = false
