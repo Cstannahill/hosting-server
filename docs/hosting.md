@@ -113,12 +113,12 @@ This platform allows you to host multiple fullstack applications by referencing 
    ```bash
    docker-compose up -d --build
    ```
-4. Start your apps using their own Compose files:
+4. Start your apps using their own Compose files or run them all via the helper script:
    ```bash
-   docker compose -f /path/to/your/app/docker-compose.yml up -d
+   python scripts/launch_apps.py up
    ```
 
-Apps will be reverse proxied by domain via NGINX.
+Apps will be reverse proxied by domain via NGINX. The platform targets Python (FastAPI), Node.js (Express/NestJS), and C# backends as first-class citizens.
 
 ## Requirements
 - Docker & Docker Compose

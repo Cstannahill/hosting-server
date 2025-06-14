@@ -1,6 +1,6 @@
 # Fullstack App Hosting Platform
 
-This repository contains a lightweight platform for hosting multiple fullstack applications. Each app defines its own Compose file externally and is reverse proxied through a single NGINX instance.
+This repository contains a lightweight platform for hosting multiple fullstack applications. Each app defines its own Compose file externally and is reverse proxied through a single NGINX instance. The platform can proxy Python (FastAPI), Node.js (Express or NestJS), and even C# backends.
 
 ## Usage
 
@@ -13,10 +13,11 @@ This repository contains a lightweight platform for hosting multiple fullstack a
    ```bash
    docker-compose up -d --build
    ```
-4. Launch each application using its own Compose file:
+4. Launch each application using its own Compose file or let the helper script manage them for you:
    ```bash
-   docker compose -f /path/to/app/docker-compose.yml up -d
+   python scripts/launch_apps.py up
    ```
+   The script reads `compose/app-registry/*.yaml` and runs `docker compose` for each app.
 
 The apps will be accessible at the domains specified in the registry.
 

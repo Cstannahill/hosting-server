@@ -41,10 +41,12 @@ hosting-server/
 ### 2. **Register External Apps**
 
 Each app gets a YAML file in `compose/app-registry/` that defines:
-- Name
-- Frontend port & domain
-- Backend port & domain
-- Path to the app’s `docker-compose.yml`
+  - Name
+  - Frontend port & domain
+  - Backend port & domain
+  - Path to the app’s `docker-compose.yml`
+
+Backends can be written in Python (FastAPI), Node.js (Express or NestJS), or C# using ASP.NET Core. As long as the app exposes a port via Docker Compose, the proxy can route to it.
 
 **Example:** `compose/app-registry/app1.yaml`
 ```yaml
@@ -82,11 +84,11 @@ This brings up only the platform itself.
 
 ### 5. **Launch the Apps (Externally)**
 
-Each app lives outside the host repo. Deploy it using its own compose file:
+Each app lives outside the host repo. You can deploy them individually or run them all via a helper script:
 ```bash
-docker compose -f /external/path/to/app1/docker-compose.yml up -d
+python scripts/launch_apps.py up
 ```
-Ensure ports match those defined in the app registry.
+The script reads the registry and executes `docker compose` for each referenced `compose_file`. Ensure ports match those defined in the registry.
 
 ---
 
