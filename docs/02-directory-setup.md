@@ -1,124 +1,66 @@
-Awesome! Here’s a **complete, well-structured draft** for **`02-directory-setup.md`**—with copy-paste-ready content and prompts for tailoring to your project.
-
----
-
-```md
 # 02. Directory Structure & Setup
 
 ## Purpose
 
-This document describes the project’s folder and file structure, the rationale behind a monorepo setup, and the purpose of each major directory.  
-A well-organized monorepo makes it easy to manage multiple applications (frontend, backend, etc.) and shared infrastructure as your platform grows.
-
----
+This document outlines the repository layout and explains why a monorepo is used for all services. A consistent structure keeps the project maintainable as more apps and infrastructure are added.
 
 ## Why Monorepo?
 
-- **Centralized management:** One repo for all services and infrastructure.
-- **Atomic commits:** Change code, infra, or docs together in a single commit.
-- **Shared dependencies:** Reuse code, configs, or assets between apps.
-- **Simple orchestration:** All apps start/stop together (with Docker Compose).
-
----
+- **Centralized management:** Source, infrastructure, and documentation live in a single repository.
+- **Atomic commits:** Code, infrastructure, and docs can be updated together.
+- **Shared dependencies:** Reuse configuration, scripts, or libraries between apps.
+- **Simple orchestration:** All services start together with Docker Compose.
 
 ## Top-Level Structure
 
 ```
-
 my-hosting-platform/
 ├── apps/
 │   ├── web/                  # Frontend app (Vite/React/TypeScript)
 │   └── api/                  # Backend API (FastAPI/Python)
-├── services/
-│   └── db/                   # (Optional) DB migration scripts, init data, etc.
+├── services/                 # Additional utilities written in Rust
 ├── nginx/
 │   └── nginx.conf            # Reverse proxy config
-├── docs/                     # Project documentation (this folder)
-│   ├── 02-directory-setup.md
-│   └── ... (other docs)
+├── docs/                     # Project documentation
 ├── docker-compose.yml        # Multi-app orchestration config
-├── .env                      # Global environment variables & secrets
+├── .env.example              # Example environment configuration
 └── README.md                 # Project overview and quickstart
-
 ```
-
----
 
 ## Directory/Component Breakdown
 
 ### `/apps/`
-Contains all application source code.
+Contains all application code.
 
-- **/web/**  
-  The main frontend application, built with Vite, React, and TypeScript.  
-  Responsible for serving the user interface and static assets.
-
-- **/api/**  
-  The backend REST API, built with FastAPI (Python).  
-  Handles business logic, data access, and exposes endpoints to `/api/`.
-
----
+- **`web/`** – React/Vite frontend served via NGINX.
+- **`api/`** – FastAPI backend exposing REST endpoints.
 
 ### `/services/`
-Infrastructure add-ons and service dependencies.
-
-- **/db/**  
-  (Optional) Database migration scripts, seed data, or setup files for Postgres, Mongo, etc.
-
----
+Rust utilities such as the log watcher.
 
 ### `/nginx/`
-Reverse proxy and routing configuration.
-
-- **nginx.conf**  
-  Main config file for NGINX. Handles HTTP requests and routes traffic to the correct app container (e.g., `/api` → backend, `/` → frontend).
-
----
+Holds the reverse proxy configuration used by Docker Compose.
 
 ### `/docs/`
-Living documentation for this platform.  
-Each major setup step has its own doc (like this one).
-
----
+Living documentation for every setup step. Keep this folder up to date as new services are added.
 
 ### `docker-compose.yml`
-The main orchestration file for Docker Compose.  
-Defines and links all services: frontend, backend, DB, NGINX, etc.
+Orchestrates all containers for local development.
 
----
-
-### `.env`
-Global secrets and configuration, such as database credentials.  
-**Do not commit sensitive secrets to version control.**
-
----
+### `.env.example`
+Sample environment variables. Copy to `.env` and edit for local values. **Never commit real secrets.**
 
 ### `README.md`
-High-level introduction, setup guide, and developer quickstart.
-
----
+High-level introduction and quick-start instructions.
 
 ## Best Practices
 
-- **Consistent naming:** Use clear, descriptive folder names.
-- **Keep documentation up to date** as new apps/services are added.
-- **Shared assets:** Store any shared code/libraries in a dedicated location if needed (e.g., `/packages/`).
-
----
+- Use clear, descriptive folder names.
+- Keep documentation updated as new services are introduced.
+- Store any shared libraries in a dedicated location if needed.
 
 ## Next Steps
 
-- [ ] [02-dockerizing-web.md](./02-dockerizing-web.md): Dockerizing the frontend (Vite) app.
 - [ ] [03-dockerizing-api.md](./03-dockerizing-api.md): Dockerizing the backend (FastAPI) app.
 
----
-```
-
----
-
-**How to use:**
-
-* Copy into `docs/02-directory-setup.md`
-* Tailor folder/app descriptions if you add more services
-* Add project-specific tips or diagrams if desired
 
