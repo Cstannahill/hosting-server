@@ -1,0 +1,36 @@
+worker_processes 1;
+events { worker_connections 1024; }
+
+http {
+{% for app in apps %}
+  upstream {{ app.name }}_frontend {
+    server {{ app.name }}_frontend:{{ app.frontend.port }};
+  }
+
+  upstream {{ app.name }}_backend {
+    server {{ app.name }}_backend:{{ app.backend.port }};
+  }
+
+  server {
+    listen 80;
+    server_name {{ app.frontend.domain }};
+
+    location / {
+      proxy_pass http://{{ app.name }}_frontend;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+    }
+  }
+
+  server {
+    listen 80;
+    server_name {{ app.backend.domain }};
+
+    location / {
+      proxy_pass http://{{ app.name }}_backend;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+    }
+  }
+{% endfor %}
+}
