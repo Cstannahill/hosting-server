@@ -1,0 +1,129 @@
+# docker-compose.yml
+
+version: "3.8"
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on: []
+
+# compose/app-registry/app1.yaml
+
+name: app1
+frontend:
+  port: 3000
+  domain: app1.local
+backend:
+  port: 8000
+  domain: api.app1.local
+compose_file: /home/youruser/code/my-apps/app1/docker-compose.yml
+
+# nginx/nginx.conf.template
+
+worker_processes 1;
+events { worker_connections 1024; }
+
+http {
+  {{#each apps}}
+  upstream {{this.name}}_frontend {
+    server {{this.name}}_frontend:{{this.frontend.port}};
+  }
+
+  upstream {{this.name}}_backend {
+    server {{this.name}}_backend:{{this.backend.port}};
+  }
+
+  server {
+    listen 80;
+    server_name {{this.frontend.domain}};
+
+    location / {
+      proxy_pass http://{{this.name}}_frontend;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+    }
+  }
+
+  server {
+    listen 80;
+    server_name {{this.backend.domain}};
+
+    location / {
+      proxy_pass http://{{this.name}}_backend;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+    }
+  }
+  {{/each}}
+}
+
+# scripts/generate-nginx.py
+
+import yaml
+import os
+from jinja2 import Template
+
+REGISTRY_PATH = "compose/app-registry"
+TEMPLATE_PATH = "nginx/nginx.conf.template"
+OUTPUT_PATH = "nginx/nginx.conf"
+
+def load_registry():
+    apps = []
+    for file in os.listdir(REGISTRY_PATH):
+        if file.endswith(".yaml"):
+            with open(os.path.join(REGISTRY_PATH, file)) as f:
+                apps.append(yaml.safe_load(f))
+    return apps
+
+def main():
+    apps = load_registry()
+
+    with open(TEMPLATE_PATH) as f:
+        template = Template(f.read())
+
+    rendered = template.render(apps=apps)
+
+    with open(OUTPUT_PATH, "w") as f:
+        f.write(rendered)
+
+    print(f"✅ nginx.conf updated with {len(apps)} app(s)")
+
+if __name__ == "__main__":
+    main()
+
+# README.md
+
+# Fullstack App Hosting Platform
+
+This platform allows you to host multiple fullstack applications by referencing their external Compose files.
+
+## Usage
+
+1. Create `compose/app-registry/*.yaml` entries for each app.
+2. Run the generator:
+   ```bash
+   python scripts/generate-nginx.py
+   ```
+3. Start the core platform (NGINX):
+   ```bash
+   docker-compose up -d --build
+   ```
+4. Start your apps using their own Compose files:
+   ```bash
+   docker compose -f /path/to/your/app/docker-compose.yml up -d
+   ```
+
+Apps will be reverse proxied by domain via NGINX.
+
+## Requirements
+- Docker & Docker Compose
+- Python (`pyyaml`, `jinja2`)
+
+---
+
+Let me know if you'd like SSL support or dynamic config reloads next.
