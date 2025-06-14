@@ -1,0 +1,8 @@
+name: nest
+frontend:
+  port: 4001
+  domain: nest.local
+backend:
+  port: 4001
+  domain: api.nest.local
+compose_file: ../apps/nest/docker-compose.yml

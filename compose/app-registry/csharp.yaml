@@ -1,0 +1,8 @@
+name: csharp
+frontend:
+  port: 5000
+  domain: csharp.local
+backend:
+  port: 5000
+  domain: api.csharp.local
+compose_file: ../apps/csharp-api/docker-compose.yml

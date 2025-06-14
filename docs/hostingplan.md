@@ -14,6 +14,7 @@ This self-hosted platform is designed to serve as a lightweight PaaS. It allows 
 - ✅ Proxy frontend and backend domains using NGINX
 - ✅ Use a dynamic registry-based system to configure hosted apps
 - ✅ Keep the platform lightweight, modular, and extensible
+- ✅ Support backends written in Python, Node.js, and C#
 
 ---
 
@@ -62,9 +63,9 @@ compose_file: /home/youruser/code/my-apps/app1/docker-compose.yml
 
 ### 3. **Generate NGINX Config**
 
-Use Jinja2 templating and a script to convert the registry into a fully working `nginx.conf`:
+Use Jinja2 templating and a script to convert the registry into a fully working `nginx.conf` and reload NGINX if it is running:
 ```bash
-python scripts/generate-nginx.py
+python scripts/generate-nginx.py --reload
 ```
 This populates upstream and server blocks for all defined apps.
 

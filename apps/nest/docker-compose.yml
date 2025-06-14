@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  nest:
+    build: .
+    container_name: nest
+    ports:
+      - "4001:4001"
