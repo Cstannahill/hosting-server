@@ -18,11 +18,20 @@ cleared to avoid unbounded growth.
 ## Docker Compose Integration
 
 ```yaml
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
   data_capture:
     build: ./services/data_capture
     container_name: data_capture
     depends_on:
       - metrics_exporter
+      - ollama
     volumes:
       - ./data:/data
     environment:
@@ -31,13 +40,14 @@ cleared to avoid unbounded growth.
       - METRICS_URL=http://metrics_exporter:9300/metrics
       - CAPTURE_INTERVAL_SECS=60
       - CHROMA_COLLECTION=metrics
+      - OLLAMA_HOST=http://ollama:11434
 ```
 
 ## Requirements
 
 - Python 3
 - `requests`, `chromadb`, `ollama` packages
-- A running Ollama instance with the `nomic-embed-text:v1.5` model
+- A running Ollama instance with the `nomic-embed-text:v1.5` model (provided by the `ollama` service)
 ```
 ollama pull nomic-embed-text:v1.5
 ```
