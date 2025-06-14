@@ -30,6 +30,10 @@ For the built-in examples:
 - React frontend → `http://web.local`
 - FastAPI backend → `http://api.local`
 
+The stack now includes a Python-based **data_capture** service. It stores
+metrics from `metrics_exporter` in SQLite, embeds them with Ollama's
+`nomic-embed-text:v1.5` model, and persists vectors in a local Chroma database.
+
 See the documentation in the `docs/` directory for detailed guides.
 
 ## CLI

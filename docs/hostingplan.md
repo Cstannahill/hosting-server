@@ -110,6 +110,7 @@ To support custom domains or HTTPS, you'll configure DNS and SSL later.
 - 🧠 Build a CLI or UI for managing the registry
 - 📦 Add isolated DB containers or volumes per app
 - 📊 Monitoring + health checks for hosted apps
+- 📈 Capture metrics in SQLite and embed them with Ollama + Chroma
 
 ---
 
