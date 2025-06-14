@@ -1,0 +1,10 @@
+[checks]
+interval_secs = 10
+endpoints = [
+    { name = "web", url = "http://web:3000/", kind = "http" },
+    { name = "api", url = "http://api:8000/health", kind = "http" }
+]
+
+[dashboard]
+enabled = true
+port = 9100

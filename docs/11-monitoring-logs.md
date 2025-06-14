@@ -135,7 +135,7 @@ For solo/dev setups, sometimes all you need is:
 
 ## Next Steps
 
-* [ ] [12-scaling-migration.md](./12-scaling-migration.md): Planning for scaling and migrating to production or cloud.
+* [x] [12-scaling-migration.md](./12-scaling-migration.md): Planning for scaling and migrating to production or cloud.
 
 ---
 

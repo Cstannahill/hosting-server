@@ -22,5 +22,68 @@ services:
     ports:
       - "5432:5432"
 
+  loki:
+    image: grafana/loki:2.9.0
+    container_name: loki
+    ports:
+      - "3100:3100"
+
+  promtail:
+    image: grafana/promtail:2.9.0
+    container_name: promtail
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/log:/var/log:ro
+      - ./monitoring/promtail-config.yml:/etc/promtail/config.yml:ro
+    command: -config.file=/etc/promtail/config.yml
+    depends_on:
+      - loki
+
+  grafana:
+    image: grafana/grafana:10.4.2
+    container_name: grafana
+    ports:
+      - "3001:3000"
+    depends_on:
+      - loki
+
+  backup_scheduler:
+    build: ./services/backup_scheduler
+    container_name: backup_scheduler
+    depends_on:
+      - db
+    volumes:
+      - db_data:/db_data:ro
+      - ./backups:/app/backups
+    environment:
+      - PGHOST=db
+      - PGUSER=${PGUSER:-postgres}
+      - PGPASSWORD=${PGPASSWORD:-postgres}
+      - PGDATABASE=${PGDATABASE:-postgres}
+      - BACKUP_SCHEDULE=${BACKUP_SCHEDULE:-0 2 * * *}
+      - BACKUP_DIR=/app/backups
+
+  webhook_handler:
+    build: ./services/webhook_handler
+    container_name: webhook_handler
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./scripts:/app/scripts:ro
+    environment:
+      - WEBHOOK_PORT=9000
+      - WEBHOOK_SECRET=${WEBHOOK_SECRET:-secret}
+      - ACTION_SCRIPT=/app/scripts/deploy.sh
+
+  healthcheck_dashboard:
+    build: ./services/healthcheck_dashboard
+    container_name: healthcheck_dashboard
+    ports:
+      - "9100:9100"
+    environment:
+      - DASHBOARD_PORT=9100
+      - CHECK_ENDPOINTS=web:http://web:3000/,api:http://api:8000/health
+      - CHECK_INTERVAL_SECS=10
+
 volumes:
   db_data:
