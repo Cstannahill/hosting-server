@@ -85,5 +85,18 @@ services:
       - CHECK_ENDPOINTS=web:http://web:3000/,api:http://api:8000/health
       - CHECK_INTERVAL_SECS=10
 
+  static_file_proxy:
+    build: ./services/static_file_proxy
+    container_name: static_file_proxy
+    ports:
+      - "9200:8080"
+    volumes:
+      - ./public:/app/public:ro
+    environment:
+      - STATIC_ROOT=/app/public
+      - PROXY_MODE=off
+      - PROXY_TARGET=http://api:8000
+      - PROXY_PORT=8080
+
 volumes:
   db_data:

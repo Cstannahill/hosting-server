@@ -26,7 +26,7 @@ This checklist defines the **build order** of the platform. Each item represents
 | 14 | Rust: Backup Scheduler | [14-backup-scheduler.md](./14-backup-scheduler.md) | [x] |
 | 15 | Rust: Webhook Handler | [15-webhook-handler.md](./15-webhook-handler.md) | [x] |
 | 16 | Rust: Healthcheck Dashboard | [16-healthcheck-dashboard.md](./16-healthcheck-dashboard.md) | [x] |
-| 17 | Rust: Static File Server/Proxy | [17-static-file-proxy.md](./17-static-file-proxy.md) | [ ] |
+| 17 | Rust: Static File Server/Proxy | [17-static-file-proxy.md](./17-static-file-proxy.md) | [x] |
 | 18 | Rust: Metrics Exporter | [18-metrics-exporter.md](./18-metrics-exporter.md) | [ ] |
 | 19 | Rust: Custom CLI Tool | [19-custom-cli-tool.md](./19-custom-cli-tool.md) | [ ] |
 
