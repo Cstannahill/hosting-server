@@ -136,7 +136,7 @@ http {
 
 ## Next Steps
 
-* [ ] [06-env-vars-secrets.md](./06-env-vars-secrets.md): Managing environment variables and secrets.
-* [ ] [07-persistent-volumes.md](./07-persistent-volumes.md): Ensuring data persists with volumes.
+* [x] [06-env-vars-secrets.md](./06-env-vars-secrets.md): Managing environment variables and secrets.
+* [x] [07-persistent-volumes.md](./07-persistent-volumes.md): Ensuring data persists with volumes.
 
 ---

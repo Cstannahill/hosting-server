@@ -5,3 +5,4 @@
 # Node modules or Python caches (future-proof)
 node_modules
 __pycache__
+.env
