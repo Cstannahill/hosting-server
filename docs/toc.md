@@ -13,7 +13,7 @@ This checklist defines the **build order** of the platform. Each item represents
 | 1 | Project Overview & Goals | [01-overview-goals.md](./01-overview-goals.md) | [x] |
 | 2 | Directory Structure & Setup | [02-directory-setup.md](./02-directory-setup.md) | [x] |
 | 3 | Dockerizing Backend (API) | [03-dockerizing-api.md](./03-dockerizing-api.md) | [x] |
-| 4 | Docker Compose Orchestration | [04-docker-compose-orchestration.md](./04-docker-compose-orchestration.md) | [ ] |
+| 4 | Docker Compose Orchestration | [04-docker-compose-orchestration.md](./04-docker-compose-orchestration.md) | [x] |
 | 5 | NGINX Reverse Proxy | [05-nginx-reverse-proxy.md](./05-nginx-reverse-proxy.md) | [ ] |
 | 6 | Environment Variables & Secrets | [06-env-vars-secrets.md](./06-env-vars-secrets.md) | [ ] |
 | 7 | Persistent Volumes | [07-persistent-volumes.md](./07-persistent-volumes.md) | [ ] |
