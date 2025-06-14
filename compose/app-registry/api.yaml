@@ -1,0 +1,5 @@
+name: api
+backend:
+  port: 8000
+  domain: api.local
+compose_file: ../apps/api/docker-compose.yml
