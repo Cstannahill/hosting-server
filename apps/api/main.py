@@ -4,6 +4,11 @@ import uvicorn
 
 app = FastAPI()
 
+
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
+
 @app.get("/")
 async def read_root():
     env = os.environ.get("ENV", "development")
