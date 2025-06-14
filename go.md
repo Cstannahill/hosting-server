@@ -136,3 +136,57 @@ This document describes how the platform can be expanded to host Go-based APIs a
 - Implement the job queue and event bus services.
 - Update documentation throughout the platform to reference Go as a supported language.
 
+## Purpose
+
+This document outlines how we will extend the hosting platform to natively support Go backends and provide tooling that embraces Go's concurrency features. The goal is to make Go services first‑class citizens alongside the existing Python, Node.js, and C# examples.
+
+## Proposed Features Leveraging Go Concurrency
+
+1. **Streaming Log Aggregator**
+   - Implement a Go service that tails container logs concurrently using goroutines.
+   - Use channels to fan‑in log lines from multiple services and forward them to the Rust log watcher.
+   - Benefit: efficient log processing with minimal overhead.
+
+2. **Graceful Shutdown Manager**
+   - Provide a small Go library or example that listens for OS signals and orchestrates shutdown across multiple goroutines.
+   - Use a context with cancellation propagated via channels to stop background tasks cleanly.
+   - Benefit: demonstrates idiomatic Go patterns for production readiness.
+
+3. **Concurrent Health Check Service**
+   - Build a Go microservice that periodically checks the health of registered apps in parallel.
+   - Each health probe runs in its own goroutine with results sent back over channels.
+   - Aggregated results can be exposed over an HTTP endpoint or pushed to the metrics exporter.
+
+4. **Background Job Queue**
+   - Offer a lightweight job queue package using buffered channels for task distribution.
+   - Workers pick up jobs concurrently, enabling asynchronous workloads for Go APIs.
+   - Benefit: showcase how to structure scalable pipelines with minimal dependencies.
+
+5. **Reverse Proxy Middleware**
+   - Create a Go reverse proxy example utilizing `net/http` and channels for streaming requests/responses.
+   - It can serve as an alternative to NGINX for internal traffic or specialized routing scenarios.
+   - Demonstrates how Go's standard library handles high concurrency without extra servers.
+
+## Implementation Roadmap
+
+1. **Sample Go API**
+   - Add an example Go backend under `apps/go-api/` with a basic HTTP server.
+   - Provide Dockerfile and optional `docker-compose.yml` exposing a configurable port.
+   - Document how to register the service in `compose/app-registry/`.
+
+2. **Go Utilities Package**
+   - Create a `pkg/go-tools/` directory containing reusable helpers (e.g., graceful shutdown, job queue). 
+   - Include unit tests to illustrate usage of goroutines and channels.
+
+3. **Docs and Guides**
+   - Expand `docs/20-multi-language-backends.md` with a Go section referencing this file.
+   - Document steps to build, test, and deploy the sample Go API.
+
+4. **CI Integration**
+   - Add Go modules to `pyproject.toml` and the CI workflow to run `go vet` and `go test` for any Go code.
+
+5. **Future Exploration**
+   - Evaluate using Go for performance-critical parts of the platform, such as a custom proxy or high-volume event processing.
+   - Encourage contributions by providing a template repository demonstrating idiomatic Go practices within our orchestration stack.
+
+---
