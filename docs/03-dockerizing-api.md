@@ -81,6 +81,6 @@ Compose will build and run the container automatically.
 
 ## Next Steps
 
-- [ ] [04-docker-compose-orchestration.md](./04-docker-compose-orchestration.md): orchestrating all services with Docker Compose.
+- [x] [04-docker-compose-orchestration.md](./04-docker-compose-orchestration.md): orchestrating all services with Docker Compose.
 
 
