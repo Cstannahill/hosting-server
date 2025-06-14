@@ -1,8 +1,3 @@
-Excellent! Here’s a thorough, beginner-to-pro-ready template for **`08-networking-service-discovery.md`** covering Docker networking and how your containers/services communicate.
-
----
-
-````md
 # 08. Networking & Service Discovery
 
 ## Purpose
@@ -146,15 +141,3 @@ proxy_pass http://web:3000/;
 
 * [ ] [09-operations.md](./09-operations.md): Day-to-day usage, starting/stopping services, viewing logs, and updating containers.
 
----
-
-```
-
----
-
-**How to use:**  
-- Paste into `docs/08-networking-service-discovery.md`.
-- Add custom network diagrams or real-world examples if your stack expands.
-
-Ready for **step 9 (Operations: Start/Stop/Logs/Update)?**
-```

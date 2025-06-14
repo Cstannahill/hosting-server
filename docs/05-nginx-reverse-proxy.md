@@ -1,8 +1,3 @@
-Awesome! Here’s a detailed template for **`05-nginx-reverse-proxy.md`**, covering the why, how, and best practices for your NGINX reverse proxy setup.
-
----
-
-````md
 # 05. NGINX Reverse Proxy Setup
 
 ## Purpose
@@ -145,15 +140,3 @@ http {
 * [ ] [07-persistent-volumes.md](./07-persistent-volumes.md): Ensuring data persists with volumes.
 
 ---
-
-```
-
----
-
-**How to use:**  
-- Copy to `docs/05-nginx-reverse-proxy.md`
-- Adjust internal service names/ports or add extra location blocks as needed.
-- Add any project-specific tips or custom routes as you expand.
-
-Ready for **step 6 (Environment Variables & Secrets)**?
-```
