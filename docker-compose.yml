@@ -86,5 +86,27 @@ services:
       - BACKUP_SCHEDULE=${BACKUP_SCHEDULE:-0 2 * * *}
       - BACKUP_DIR=/app/backups
 
+  webhook_handler:
+    build: ./services/webhook_handler
+    container_name: webhook_handler
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./scripts:/app/scripts:ro
+    environment:
+      - WEBHOOK_PORT=9000
+      - WEBHOOK_SECRET=${WEBHOOK_SECRET:-secret}
+      - ACTION_SCRIPT=/app/scripts/deploy.sh
+
+  healthcheck_dashboard:
+    build: ./services/healthcheck_dashboard
+    container_name: healthcheck_dashboard
+    ports:
+      - "9100:9100"
+    environment:
+      - DASHBOARD_PORT=9100
+      - CHECK_ENDPOINTS=web:http://web:3000/,api:http://api:8000/health
+      - CHECK_INTERVAL_SECS=10
+
 volumes:
   db_data:
