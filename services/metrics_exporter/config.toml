@@ -1,0 +1,15 @@
+[scrape]
+interval_secs = 15
+targets = [
+  { name = "api", url = "http://api:8000/metrics", type = "prometheus" },
+  { name = "web", url = "http://web:3000/metrics", type = "custom" }
+]
+
+[system]
+enabled = true
+collect_cpu = true
+collect_ram = true
+collect_disk = false
+
+[metrics]
+custom_gauges = ["errors", "active_sessions"]
