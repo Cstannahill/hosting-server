@@ -109,6 +109,20 @@ services:
 
       - PROXY_PORT=8080
 
+  data_capture:
+    build: ./services/data_capture
+    container_name: data_capture
+    depends_on:
+      - metrics_exporter
+    volumes:
+      - ./data:/data
+    environment:
+      - SQLITE_PATH=/data/metrics.sqlite
+      - CHROMA_PATH=/data/chroma
+      - METRICS_URL=http://metrics_exporter:9300/metrics
+      - CAPTURE_INTERVAL_SECS=60
+      - CHROMA_COLLECTION=metrics
+
 
 volumes:
   db_data:

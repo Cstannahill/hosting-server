@@ -33,6 +33,7 @@ This checklist defines the **build order** of the platform. Each item represents
 
 
 | 20 | Multi-Language Backends | [20-multi-language-backends.md](./20-multi-language-backends.md) | [x] |
+| 21 | Data Capture & Embedding | [21-data-capture.md](./21-data-capture.md) | [x] |
 
 
 ---
