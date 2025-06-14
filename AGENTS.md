@@ -9,6 +9,11 @@ Before planning or coding, open `docs/00-table-of-contents.md` and locate the fi
 Carefully review the code and documentation for the previous item to ensure it is fully complete;
 if anything is missing, finish that work before moving on.
 
+### Build While Documenting
+- Each entry in the table of contents represents real work to implement in this repository.
+- As you write or update documentation, create the corresponding files, directories, and configuration.
+- Only mark an item complete after its implementation exists and runs as described.
+
 ---
 
 ## Project Vision

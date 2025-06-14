@@ -1,8 +1,3 @@
-Perfect! Here is a **detailed, practical template for `03-dockerizing-api.md`**—for your Python FastAPI backend.
-
----
-
-````md
 # 03. Dockerizing the Backend (FastAPI/Python)
 
 ## Purpose
@@ -46,7 +41,7 @@ EXPOSE 8000
 
 # Run Uvicorn (production-ready ASGI server)
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
-````
+```
 
 * **main\:app** assumes your entrypoint is `main.py` and your FastAPI object is named `app`. Adjust if needed.
 * **requirements.txt** should contain all Python dependencies (including `fastapi` and `uvicorn`).
@@ -128,15 +123,3 @@ services:
 ## Next Steps
 
 * [ ] [04-docker-compose-orchestration.md](./04-docker-compose-orchestration.md): Orchestrating all services with Docker Compose.
-
-```
-
----
-
-**How to use:**
-- Copy into `docs/03-dockerizing-api.md`
-- Adjust `main:app` and requirements as needed for your codebase.
-- Add any extra dependencies, DB connection instructions, or local dev notes for your setup.
-
-**Ready for step 4 (Docker Compose orchestration)?**
-```

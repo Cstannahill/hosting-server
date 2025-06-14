@@ -1,8 +1,3 @@
-Great! Here’s a **detailed template for `04-docker-compose-orchestration.md`**, explaining how to orchestrate all your services (frontend, backend, DB, proxy) using Docker Compose.
-
----
-
-```md
 # 04. Docker Compose Orchestration
 
 ## Purpose
@@ -37,7 +32,7 @@ my-hosting-platform/
 │   └── db/
 └── ...
 
-````
+```
 
 ---
 
@@ -88,7 +83,7 @@ services:
 
 volumes:
   db_data:
-````
+```
 
 ---
 
@@ -176,15 +171,3 @@ volumes:
 * [ ] [05-nginx-reverse-proxy.md](./05-nginx-reverse-proxy.md): Setting up the reverse proxy for routing.
 * [ ] [06-env-vars-secrets.md](./06-env-vars-secrets.md): Managing environment variables and secrets.
 
----
-
-```
-
----
-
-**How to use:**  
-- Copy this into `docs/04-docker-compose-orchestration.md`
-- Adjust service names/paths/ports as needed for your actual project.
-
-**Ready for step 5 (NGINX Reverse Proxy)?**
-```
