@@ -61,6 +61,6 @@ High-level introduction and quick-start instructions.
 
 ## Next Steps
 
-- [ ] [03-dockerizing-api.md](./03-dockerizing-api.md): Dockerizing the backend (FastAPI) app.
+- [x] [03-dockerizing-api.md](./03-dockerizing-api.md): Dockerizing the backend (FastAPI) app.
 
 
