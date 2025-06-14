@@ -96,8 +96,8 @@ The script reads the registry and executes `docker compose` for each referenced 
 ### 6. **Access the Apps**
 
 Once everything is running:
-- Open `http://app1.local` → frontend
-- Open `http://api.app1.local` → backend
+- Open `http://web.local` → React frontend
+- Open `http://api.local` → FastAPI backend
 
 To support custom domains or HTTPS, you'll configure DNS and SSL later.
 

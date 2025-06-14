@@ -1,14 +1,11 @@
-use axum::{Router, routing::get_service, http::{StatusCode, Request}};
+use axum::{Router, routing::get_service, http::{StatusCode, Request, HeaderValue}};
 use axum::extract::State;
-use axum::body;
+use axum::body::{self, Body};
 use std::{env, net::SocketAddr};
 use tower_http::services::ServeDir;
 use tower_http::set_header::SetResponseHeaderLayer;
-use http::header::{CACHE_CONTROL, HeaderValue};
 use tower_http::compression::CompressionLayer;
-use tower_http::set_header::SetResponseHeaderLayer;
-use axum::http::HeaderValue;
-use axum::body::Body;
+use http::header::CACHE_CONTROL;
 use reqwest::Client;
 
 #[derive(Clone)]
@@ -69,15 +66,10 @@ async fn main() {
         HeaderValue::from_static("public, max-age=3600"),
     );
 
-    let mut router = Router::new().nest_service("/", serve_dir.layer(cache_layer));
-
     let mut router = Router::new()
         .nest_service("/", serve_dir)
         .layer(CompressionLayer::new())
-        .layer(SetResponseHeaderLayer::overriding(
-            axum::http::header::CACHE_CONTROL,
-            HeaderValue::from_static("public, max-age=3600"),
-        ));
+        .layer(cache_layer);
     if cfg.proxy_mode {
         router = router.fallback(proxy);
     }

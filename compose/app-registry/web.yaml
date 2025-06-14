@@ -1,0 +1,5 @@
+name: web
+frontend:
+  port: 3000
+  domain: web.local
+compose_file: ../apps/web/docker-compose.yml

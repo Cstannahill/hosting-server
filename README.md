@@ -26,6 +26,9 @@ The FastAPI example now includes a flexible `start.sh` script that reads environ
    The script reads `compose/app-registry/*.yaml` and runs `docker compose` for each app.
 
 The apps will be accessible at the domains specified in the registry.
+For the built-in examples:
+- React frontend → `http://web.local`
+- FastAPI backend → `http://api.local`
 
 See the documentation in the `docs/` directory for detailed guides.
 

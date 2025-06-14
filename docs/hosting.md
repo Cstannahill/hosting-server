@@ -23,6 +23,22 @@ backend:
   domain: api.app1.local
 compose_file: /home/youruser/code/my-apps/app1/docker-compose.yml
 
+# compose/app-registry/web.yaml
+
+name: web
+frontend:
+  port: 3000
+  domain: web.local
+compose_file: ../apps/web/docker-compose.yml
+
+# compose/app-registry/api.yaml
+
+name: api
+backend:
+  port: 8000
+  domain: api.local
+compose_file: ../apps/api/docker-compose.yml
+
 # nginx/nginx.conf.template
 
 worker_processes 1;
@@ -119,6 +135,7 @@ This platform allows you to host multiple fullstack applications by referencing 
    ```
 
 Apps will be reverse proxied by domain via NGINX. The platform targets Python (FastAPI), Node.js (Express/NestJS), and C# backends as first-class citizens.
+For the provided React and FastAPI samples, browse to `http://web.local` and `http://api.local` once everything is running.
 
 The sample apps demonstrate hosting FastAPI (Python), Express and NestJS (Node.js),
 and an ASP.NET minimal API. Any Dockerised backend can be added to the registry
