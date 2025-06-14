@@ -1,13 +1,24 @@
-# Hosting Platform
+# Fullstack App Hosting Platform
 
-This repository contains a modular setup for hosting a React/Vite frontend and a FastAPI backend using Docker Compose.
+This repository contains a lightweight platform for hosting multiple fullstack applications. Each app defines its own Compose file externally and is reverse proxied through a single NGINX instance.
 
-## Quick Start
+## Usage
 
-1. Ensure Docker and Docker Compose are installed.
-2. Copy `.env.example` to `.env` and adjust environment variables as needed.
-3. Run `docker-compose up --build` to start all services.
-4. Visit `http://localhost` in your browser.
+1. Add YAML files under `compose/app-registry/` describing each app's domains and ports.
+2. Generate the NGINX configuration:
+   ```bash
+   python scripts/generate-nginx.py
+   ```
+3. Start the core services:
+   ```bash
+   docker-compose up -d --build
+   ```
+4. Launch each application using its own Compose file:
+   ```bash
+   docker compose -f /path/to/app/docker-compose.yml up -d
+   ```
+
+The apps will be accessible at the domains specified in the registry.
 
 See the documentation in the `docs/` directory for detailed guides.
 

@@ -1,0 +1,8 @@
+name: app1
+frontend:
+  port: 3000
+  domain: app1.local
+backend:
+  port: 8000
+  domain: api.app1.local
+compose_file: /home/youruser/code/my-apps/app1/docker-compose.yml
