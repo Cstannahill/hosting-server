@@ -1,0 +1,9 @@
+[log_sources]
+files = []
+
+[filters]
+levels = []
+regexes = []
+
+[alerts]
+webhook = ""

@@ -1,0 +1,7 @@
+# Ignore Rust build artifacts
+/target
+**/target
+
+# Node modules or Python caches (future-proof)
+node_modules
+__pycache__
