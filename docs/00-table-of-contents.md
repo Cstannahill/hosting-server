@@ -12,7 +12,7 @@ Copy this to `docs/00-table-of-contents.md` (or `README.md` in `/docs/`).
 
 | Step | Area/Service           | Documentation File                | Complete? |
 |------|------------------------|-----------------------------------|-----------|
-|  1   | Project Overview & Goals   | [01-overview-goals.md](./01-overview-goals.md)         | [ ]       |
+|  1   | Project Overview & Goals   | [01-overview-goals.md](./01-overview-goals.md)         | [x]       |
 |  2   | Directory Structure & Setup| [02-directory-setup.md](./02-directory-setup.md)       | [ ]       |
 |  3   | Dockerizing Backend (API)  | [03-dockerizing-api.md](./03-dockerizing-api.md)       | [ ]       |
 |  4   | Docker Compose Orchestration | [04-docker-compose-orchestration.md](./04-docker-compose-orchestration.md) | [ ]       |
