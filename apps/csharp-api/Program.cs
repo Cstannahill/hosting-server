@@ -1,5 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddResponseCompression();
 var app = builder.Build();
+app.UseResponseCompression();
 app.MapGet("/", () => Results.Json(new { message = "Hello from ASP.NET" }));
 app.MapGet("/health", () => Results.Ok("ok"));
 
