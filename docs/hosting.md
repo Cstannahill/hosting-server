@@ -105,9 +105,9 @@ This platform allows you to host multiple fullstack applications by referencing 
 ## Usage
 
 1. Create `compose/app-registry/*.yaml` entries for each app.
-2. Run the generator:
+2. Run the generator (optionally reload NGINX automatically):
    ```bash
-   python scripts/generate-nginx.py
+   python scripts/generate-nginx.py --reload
    ```
 3. Start the core platform (NGINX):
    ```bash
@@ -120,9 +120,14 @@ This platform allows you to host multiple fullstack applications by referencing 
 
 Apps will be reverse proxied by domain via NGINX. The platform targets Python (FastAPI), Node.js (Express/NestJS), and C# backends as first-class citizens.
 
+The sample apps demonstrate hosting FastAPI (Python), Express and NestJS (Node.js),
+and an ASP.NET minimal API. Any Dockerised backend can be added to the registry
+following the same pattern.
+
 ## Requirements
 - Docker & Docker Compose
 - Python (`pyyaml`, `jinja2`)
+- Node.js and the .NET SDK if you wish to build the example Node and C# apps locally
 
 ---
 

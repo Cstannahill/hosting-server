@@ -2,12 +2,14 @@
 
 This repository contains a lightweight platform for hosting multiple fullstack applications. Each app defines its own Compose file externally and is reverse proxied through a single NGINX instance. The platform can proxy Python (FastAPI), Node.js (Express or NestJS), and even C# backends.
 
+Sample backends are provided for FastAPI, Express, NestJS and ASP.NET to demonstrate that any Dockerised language can be integrated.
+
 ## Usage
 
 1. Add YAML files under `compose/app-registry/` describing each app's domains and ports.
-2. Generate the NGINX configuration:
+2. Generate the NGINX configuration and reload the proxy:
    ```bash
-   python scripts/generate-nginx.py
+   python scripts/generate-nginx.py --reload
    ```
 3. Start the core services:
    ```bash
