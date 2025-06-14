@@ -98,6 +98,40 @@ The examples below show minimal setups for Python (FastAPI), Node.js (Express an
 
 ---
 
+## Go
+
+1. Minimal HTTP server (`main.go`):
+   ```go
+   package main
+   import (
+       "fmt"
+       "net/http"
+   )
+
+   func main() {
+       http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+           fmt.Fprintln(w, "Hello from Go")
+       })
+       http.ListenAndServe(":8080", nil)
+   }
+   ```
+2. `Dockerfile` using a multi-stage build:
+   ```Dockerfile
+   FROM golang:1.21-alpine AS builder
+   WORKDIR /app
+   COPY . .
+   RUN go build -o go-api
+
+   FROM alpine:latest
+   WORKDIR /app
+   COPY --from=builder /app/go-api /usr/local/bin/go-api
+   EXPOSE 8080
+   CMD ["go-api"]
+   ```
+3. Compose file exposes `8080` to the proxy.
+
+---
+
 Once Docker images for these services are built and compose files are referenced in `compose/app-registry/*.yaml`, run:
 ```bash
 python scripts/generate-nginx.py

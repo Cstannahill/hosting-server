@@ -39,6 +39,14 @@ backend:
   domain: api.local
 compose_file: ../apps/api/docker-compose.yml
 
+# compose/app-registry/go-api.yaml
+
+name: go-api
+backend:
+  port: 8080
+  domain: go.local
+compose_file: ../apps/go-api/docker-compose.yml
+
 # nginx/nginx.conf.template
 
 worker_processes 1;
@@ -134,11 +142,11 @@ This platform allows you to host multiple fullstack applications by referencing 
    python scripts/launch_apps.py up
    ```
 
-Apps will be reverse proxied by domain via NGINX. The platform targets Python (FastAPI), Node.js (Express/NestJS), and C# backends as first-class citizens.
+Apps will be reverse proxied by domain via NGINX. The platform targets Python (FastAPI), Node.js (Express/NestJS), C#, and Go backends as first-class citizens.
 For the provided React and FastAPI samples, browse to `http://web.local` and `http://api.local` once everything is running.
 
 The sample apps demonstrate hosting FastAPI (Python), Express and NestJS (Node.js),
-and an ASP.NET minimal API. Any Dockerised backend can be added to the registry
+an ASP.NET minimal API, and now a simple Go API. Any Dockerised backend can be added to the registry
 following the same pattern.
 
 The platform also ships with `data_capture` and `ollama` services. Metrics are

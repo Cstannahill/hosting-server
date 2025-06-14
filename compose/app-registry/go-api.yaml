@@ -1,0 +1,5 @@
+name: go-api
+backend:
+  port: 8080
+  domain: go.local
+compose_file: ../apps/go-api/docker-compose.yml

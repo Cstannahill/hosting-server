@@ -14,7 +14,7 @@ This self-hosted platform is designed to serve as a lightweight PaaS. It allows 
 - ✅ Proxy frontend and backend domains using NGINX
 - ✅ Use a dynamic registry-based system to configure hosted apps
 - ✅ Keep the platform lightweight, modular, and extensible
-- ✅ Support backends written in Python, Node.js, and C#
+- ✅ Support backends written in Python, Node.js, C#, and Go
 
 ---
 
