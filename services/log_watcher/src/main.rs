@@ -97,7 +97,7 @@ fn line_matches(line: &str, cfg: &Config) -> bool {
     };
     level_match && regex_match
 }
-
+// async function
 async fn send_webhook(url: &str, line: &str) -> Result<()> {
     let client = reqwest::Client::new();
     let body = serde_json::json!({ "message": line });
