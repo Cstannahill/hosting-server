@@ -4,9 +4,9 @@ This repository contains a lightweight platform for hosting multiple fullstack a
 
 Sample backends are provided for FastAPI, Express, NestJS, ASP.NET, and a simple Go service to demonstrate that any Dockerised language can be integrated.
 
-The example apps now include compression middleware and request logging. The React frontend checks the API health endpoint from a configurable URL, and the static file proxy serves assets with long-lived caching headers.
+The example apps now include compression middleware and request logging. The React frontend checks the API health endpoint from a configurable URL, and the static file proxy serves assets with long-lived caching headers. The React entry point was streamlined to use an `ErrorBoundary` wrapper and a single `App` component for faster rendering.
 
-The FastAPI example now includes a flexible `start.sh` script that reads environment variables (`PORT`, `WORKERS`, and `LOG_LEVEL`) and a `/health` endpoint for basic monitoring.
+The FastAPI example now includes a flexible `start.sh` script that reads environment variables (`PORT`, `WORKERS`, and `LOG_LEVEL`) and a `/health` endpoint for basic monitoring. Responses use FastAPI's high-performance `ORJSONResponse` class with cache headers for improved throughput.
 
 ## Usage
 
@@ -29,6 +29,17 @@ The apps will be accessible at the domains specified in the registry.
 For the built-in examples:
 - React frontend → `http://web.local`
 - FastAPI backend → `http://api.local`
+
+### Local development
+
+Install dependencies for the sample apps before running them directly:
+
+```bash
+cd apps/web && npm ci
+cd ../api && pip install -r requirements.txt
+```
+
+Both apps can then be launched with `docker compose` or via the helper script.
 
 The stack now includes a Python-based **data_capture** service. It stores
 metrics from `metrics_exporter` in SQLite and embeds them with Ollama's
