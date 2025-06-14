@@ -10,3 +10,7 @@ This repository contains a modular setup for hosting a React/Vite frontend and a
 4. Visit `http://localhost` in your browser.
 
 See the documentation in the `docs/` directory for detailed guides.
+
+## CLI
+
+A Rust-based CLI tool is available under `cli_tools/custom_cli_tool` to automate common tasks. Build it with `cargo build --release` and run commands like `./target/release/custom_cli_tool deploy`.
