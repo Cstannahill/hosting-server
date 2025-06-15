@@ -12,6 +12,32 @@ This guide introduces a minimal web interface that allows users to deploy and st
 - Deploy or stop an app with a single button.
 - Show basic status messages returned from the API.
 
+### Design Goals
+
+The UI should remain lightweight while borrowing the clean aesthetics of Vercel's dashboard. Actions must be discoverable with minimal clicks and every operation should provide instant feedback. The layout uses a simple dark theme and responsive components so the interface works on desktops and mobile devices.
+
+### Aesthetics & Layout
+
+- **Dark mode first** with a subtle accent color for buttons and status badges.
+- Top navigation bar with platform logo, project switcher and user menu.
+- Responsive grid that lists all apps with quick-action buttons.
+- Styles implemented with Tailwind or CSS modules to keep the markup lean.
+
+### Pages and Flow
+
+1. **Login** – optional OAuth or basic auth that redirects to the dashboard.
+2. **Dashboard** – lists registered apps from the registry with deploy and stop buttons.
+3. **App Detail** – shows deployment history, environment variables editor and real-time logs via WebSockets.
+4. **Settings** – manage API tokens, SSH keys and domain aliases.
+
+### Developer Experience
+
+- One-click deploy/stop with toast notifications.
+- Environment variables stored securely and injected during deployment.
+- Live log stream from the API to watch build output.
+- API tokens so CI pipelines can trigger deployments.
+- Clear error pages and helpful tooltips throughout the UI.
+
 ---
 
 ## System Architecture
