@@ -6,7 +6,6 @@
 node_modules
 __pycache__
 .env
-
-# Ignore Cargo.lock files
+# Ignore Cargo lock files
 Cargo.lock
 **/Cargo.lock

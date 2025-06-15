@@ -1,5 +1,4 @@
-version: "3.8"
-
+# Version is no longer used
 services:
   nginx:
     image: nginx:latest
@@ -169,8 +168,14 @@ services:
     environment:
       - WS_PORT=9400
 
+  deployment_api:
+    build: ./services/deployment_api
+    container_name: deployment_api
+    volumes:
+      - .:/repo
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - REGISTRY_PATH=/repo/compose/app-registry
+    ports:
+      - "9500:8080"
 
-volumes:
-  db_data:
-  ollama_data:
-  mongo_data:

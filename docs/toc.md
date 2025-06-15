@@ -37,6 +37,7 @@ This checklist defines the **build order** of the platform. Each item represents
 | 22 | MongoDB Backup Service | [22-mongo-backup.md](./22-mongo-backup.md) | [x] |
 | 23 | WebSocket Broadcast Service | [23-websocket-broadcast.md](./23-websocket-broadcast.md) | [x] |
 | 24 | Go Services & Utilities | [go.md](../go.md) | [ ] |
+| 25 | Web Deployment Interface | [25-web-ui.md](./25-web-ui.md) | [ ] |
 
 
 ---

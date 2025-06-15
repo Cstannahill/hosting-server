@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  platform-ui:
+    build: .
+    container_name: platform-ui
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
