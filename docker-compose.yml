@@ -1,5 +1,4 @@
-version: "3.8"
-
+# Version is no longer used
 services:
   nginx:
     image: nginx:latest
@@ -180,8 +179,3 @@ services:
     ports:
       - "9500:8080"
 
-
-volumes:
-  db_data:
-  ollama_data:
-  mongo_data:
