@@ -50,6 +50,11 @@ Embeddings are generated via a dedicated **ollama** container exposed on
 The repository also introduces a Go-based **go_job_queue** service showcasing
 goroutines and channels for concurrent background processing.
 
+Two new Rust services extend the stack:
+
+- **mongo_backup** schedules automated MongoDB dumps so your data is safe.
+- **ws_broadcast** exposes a lightweight WebSocket server for pushing real-time updates to React clients.
+
 See the documentation in the `docs/` directory for detailed guides.
 
 ## CLI
