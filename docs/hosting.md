@@ -153,6 +153,10 @@ The platform also ships with `data_capture` and `ollama` services. Metrics are
 stored in SQLite, then embedded through the Ollama API using the
 `nomic-embed-text:v1.5` model, and finally persisted to a Chroma database.
 
+Additional Rust services include `mongo_backup` for scheduled MongoDB dumps and
+`ws_broadcast` which provides a simple WebSocket server to push messages from
+FastAPI to React clients.
+
 ## Requirements
 - Docker & Docker Compose
 - Python (`pyyaml`, `jinja2`)

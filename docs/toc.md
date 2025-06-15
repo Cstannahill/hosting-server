@@ -34,7 +34,9 @@ This checklist defines the **build order** of the platform. Each item represents
 
 | 20 | Multi-Language Backends | [20-multi-language-backends.md](./20-multi-language-backends.md) | [x] |
 | 21 | Data Capture & Embedding | [21-data-capture.md](./21-data-capture.md) | [x] |
-| 22 | Go Services & Utilities | [go.md](../go.md) | [ ] |
+| 22 | MongoDB Backup Service | [22-mongo-backup.md](./22-mongo-backup.md) | [x] |
+| 23 | WebSocket Broadcast Service | [23-websocket-broadcast.md](./23-websocket-broadcast.md) | [x] |
+| 24 | Go Services & Utilities | [go.md](../go.md) | [ ] |
 
 
 ---

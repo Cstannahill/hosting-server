@@ -22,6 +22,14 @@ services:
     ports:
       - "5432:5432"
 
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
   loki:
     image: grafana/loki:2.9.0
     container_name: loki
@@ -141,7 +149,28 @@ services:
       - CHROMA_COLLECTION=metrics
       - OLLAMA_HOST=http://ollama:11434
 
+  mongo_backup:
+    build: ./services/mongo_backup
+    container_name: mongo_backup
+    depends_on:
+      - mongo
+    volumes:
+      - ./backups:/app/backups
+    environment:
+      - MONGO_URI=mongodb://mongo:27017
+      - BACKUP_DIR=/app/backups
+      - BACKUP_SCHEDULE=0 3 * * *
+
+  ws_broadcast:
+    build: ./services/ws_broadcast
+    container_name: ws_broadcast
+    ports:
+      - "9400:9400"
+    environment:
+      - WS_PORT=9400
+
 
 volumes:
   db_data:
   ollama_data:
+  mongo_data:
